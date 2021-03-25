@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <center><h1><p class="text-primary">Add Games</p></center></h1>
+    <center><h2><form method="post" action="mainreal.html">
+        <input type="submit" value="Back to Menu">
+    </form><h2></center><h2>
+        <style>
+            body{
+                background-image: url("https://images.squarespace-cdn.com/content/v1/5b02186afcf7fdd9101774c4/1592838476881-2X8C96WWIM8RJSRX1VJT/ke17ZwdGBToddI8pDm48kHilYxHgo5pd2DczB5brOCQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2djFQkAl81r3lGal7WreTKa0f2v-LTT6-aHhf2hEirDJACjLISwBs8eEdxAxTptZAUg/RainbowDesktopBackground.png");
+                background-size: cover;
+            }
+            </style>
+</head>
+
+<body>
+<form action="insert.php" method="POST" enctype="multipart/form-data">
+
+    <center><div>ชื่อเกม</div>
+    <input type="text" name="NameGame"><br>
+    <div>ราคา</div>
+    <input type="text" name="price"><br>
+    <div>สเปคคอมที่เล่นได้(ขั้นต่ำ)</div>
+    <input type="text" name="Game_spec"><br>
+    <div>รูปภาพเกม</div>
+    <input type="file" name="image"><br>
+    <button type="submit" name="upload">Insert</button></center>
+</body> 

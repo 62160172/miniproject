@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <center><h1><p class="text-primary">Steam Games</p></center></h1>
+
+    <center><h2><input type="text" id="kw"></center></h2>
+    <center><button onclick="search()" >Search</button></center>
+    <center><h2><form method="post" action="insert.html">
+        <input type="submit" value="Add Games">
+    </form><h2></center>
+    <center><h2><div class="grid-container" id="disp"></div></h2></center>
+    <style>
+        body{
+            background-image: url("https://images.squarespace-cdn.com/content/v1/5b02186afcf7fdd9101774c4/1592838476881-2X8C96WWIM8RJSRX1VJT/ke17ZwdGBToddI8pDm48kHilYxHgo5pd2DczB5brOCQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2djFQkAl81r3lGal7WreTKa0f2v-LTT6-aHhf2hEirDJACjLISwBs8eEdxAxTptZAUg/RainbowDesktopBackground.png");
+            background-size: cover;
+        }
+        </style>
+</head>
+
+<body>
+    <div class='grid-container'></div>
+    <script>
+        search();
+        function search() {
+            kw = document.getElementById('kw').value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    arr = JSON.parse(this.responseText);
+                    console.log(arr);
+                if (arr.length == 0) {
+                        document.getElementById('disp').innerHTML = "Not found";
+                    } else {
+                        html = "";
+                        for (i = 0; i < arr.length; i++) {
+                            html += "<div>"
+                            +"<br>"+ arr[i].NameGame
+                            +"<br>"+"ราคา :"+arr[i].price+" บาท"
+                            +"<br>"+arr[i].Game_spec
+                            +"<br><img src='roob/"+arr[i].image+ "'height='180' width='200'></center>"
+                            +"</div>";
+                        }
+                        document.getElementById('disp').innerHTML = html;
+                    }
+                }
+            }
+            parameters = "kw=" + kw;
+            xmlhttp.open("post", "main.php");
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(parameters);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
